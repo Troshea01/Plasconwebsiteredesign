@@ -1,0 +1,1085 @@
+* {
+	box-sizing: border-box;
+}
+
+/* Grid Layout
+--------------------- */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+	border: box;
+	float: left;
+}
+
+/* generic section
+--------------------- */
+body {
+	padding: 0;
+	margin: 0;
+}
+
+/* Nav
+--------------------- */
+
+
+/* CSS Document */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+
+.nav-bar {
+	background: #212121;
+	font-size:22px;
+	line-height: 32px;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	word-wrap:break-word !important;
+	font-family: 'Open Sans', sans-serif;
+	}
+
+.nav-bar h1 {
+	font-size: 60px;
+	text-align: center;
+	color: #FFF;
+}	
+
+.nav-bar h3 {
+	font-size: 30px;
+	line-height: 34px;
+	text-align: center;
+	color: #FFF;
+}
+
+.nav-bar h3 a {
+	color: #FFF;
+}
+
+.nav-bar a {
+	color: #FFF;
+}
+
+.nav-bar h1 {
+	margin-top: 100px;
+	text-align:center;
+	font-size:60px;
+	line-height: 70px;
+	font-family: 'Bree Serif', 'serif';
+	}
+
+#container {
+	margin: 0 auto;
+	max-width: 890px;
+}
+
+p {
+	text-align: center;
+}
+
+.toggle,
+[id^=drop] {
+	display: none;
+}
+
+/* Giving a background-color to the nav container. */
+nav { 
+	margin:0;
+	padding: 0;
+	background-color: #254441;
+}
+
+#logo {
+	display: block;
+	padding: 0 30px;
+	float: left;
+	font-size:20px;
+	line-height: 60px;
+}
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+
+nav:after {
+	content:"";
+	display:table;
+	clear:both;
+}
+
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */
+nav ul {
+	float: right;
+	padding:0;
+	margin:0;
+	list-style: none;
+	position: relative;
+	}
+	
+/* Positioning the navigation items inline */
+nav ul li {
+	margin: 0px;
+	display:inline-block;
+	float: left;
+	background-color: #254441;
+	}
+
+/* Styling the links */
+nav a {
+	display:block;
+	padding:14px 20px;	
+	color:#FFF;
+	font-size:17px;
+	text-decoration:none;
+}
+
+
+nav ul li ul li:hover { background: #000000; }
+
+/* Background color change on Hover */
+nav a:hover { 
+	background-color: #000000; 
+}
+
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+nav ul ul {
+	display: none;
+	position: absolute; 
+	/* has to be the same number as the "line-height" of "nav a" */
+	top: 60px; 
+}
+	
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+	
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	/* has to be the same number as the "width" of "nav ul ul li" */ 
+	left:170px; 
+}
+
+	
+/* Change ' +' in order to change the Dropdown symbol */
+.nav-bar li > a:after { content:  ' +'; }
+.nav-bar li > a:only-child:after { content: ''; }
+
+
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width : 768px) {
+
+	#logo {
+		display: block;
+		padding: 0;
+		width: 100%;
+		text-align: center;
+		float: none;
+	}
+
+	nav {
+		margin: 0;
+	}
+
+	/* Hide the navigation menu by default */
+	/* Also hide the  */
+	.toggle + a,
+	.menu {
+		display: none;
+	}
+
+	/* Stylinf the toggle lable */
+	.toggle {
+		display: block;
+		background-color: #254441;
+		padding:14px 20px;	
+		color:#FFF;
+		font-size:17px;
+		text-decoration:none;
+		border:none;
+	}
+
+	.toggle:hover {
+		background-color: #000000;
+	}
+
+	/* Display Dropdown when clicked on Parent Lable */
+	[id^=drop]:checked + ul {
+		display: block;
+	}
+
+	/* Change menu item's width to 100% */
+	nav ul li {
+		display: block;
+		width: 100%;
+		}
+
+	nav ul ul .toggle,
+	nav ul ul a {
+		padding: 0 40px;
+	}
+
+	nav ul ul ul a {
+		padding: 0 80px;
+	}
+
+	nav a:hover,
+ 	nav ul ul ul a {
+		background-color: #000000;
+	}
+  
+	nav ul li ul li .toggle,
+	nav ul ul a,
+  nav ul ul ul a{
+		padding:14px 20px;	
+		color:#FFF;
+		font-size:17px; 
+	}
+  
+  
+	nav ul li ul li .toggle,
+	nav ul ul a {
+		background-color: #212121; 
+	}
+
+	/* Hide Dropdowns by Default */
+	nav ul ul {
+		float: none;
+		position:static;
+		color: #ffffff;
+		/* has to be the same number as the "line-height" of "nav a" */
+	}
+		
+	/* Hide menus on hover */
+	nav ul ul li:hover > ul,
+	nav ul li:hover > ul {
+		display: none;
+	}
+		
+	/* Fisrt Tier Dropdown */
+	nav ul ul li {
+		display: block;
+		width: 100%;
+	}
+
+	nav ul ul ul li {
+		position: static;
+		/* has to be the same number as the "width" of "nav ul ul li" */ 
+
+	}
+
+}
+
+@media all and (max-width : 330px) {
+
+	nav ul li {
+		display:block;
+		width: 94%;
+	}
+
+}
+
+/*
+--------------------- */
+
+/* header
+--------------------- */
+header {
+	background-color: red;
+	background-image: url('../images/interior.jpg');
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+	padding: 20px;
+}
+
+
+
+header a {
+	font-size: 30px;
+	color: white;
+	width: 100%;
+}
+
+header button {
+	opacity: 0.6;
+	padding: 20px;
+	background-color: #d21e37;
+	margin-right: 550px
+
+}
+
+header button:hover {
+  background-color: #555555;
+  color: #eeeeee;
+}
+header button:focus {
+  outline:none;
+}
+
+header h1  {
+	font-family: 'Pathway Gothic One', sans-serif;
+	text-align: center;
+	font-size: 50px;
+	color: white;
+	margin-top: 350px;
+	
+}
+
+
+main {
+	background-color: white;
+	width: 100%;
+	height: 600px;
+	box-sizing: border-box;
+}
+
+/*
+--------------------- */
+
+/* services
+--------------------- */
+
+.services {
+	width: 100%;
+}
+
+.services img:hover {
+	background: #d21e37;
+}
+
+.services img{
+	margin: 0 auto;
+	display: block;
+	padding: 20px;
+}
+
+.services h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	text-align: center;
+	color: white;
+	width: 100%;
+	background-color: #202020;
+	padding: 20px;
+	font-size: 40px;
+
+}
+
+
+/* 
+--------------------- */
+
+/* about
+--------------------- */
+
+.about-section h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	text-align: center;
+	color: white;
+	width: 100%;
+	background-color: #202020;
+	padding: 20px;
+	font-size: 40px;
+}
+
+.about-section img {
+	width: 100%;
+}
+
+.about-section p {
+	font-family: 'Roboto', sans-serif;
+	position: absolute;
+	margin-top: 250px;
+}
+
+.plascon-about-logo {
+	position: absolute;
+	margin-left: 500px;
+	background-image: url('../plascon-about-logo2.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+
+.background img{
+	width: 100%;
+}
+
+
+/* 
+--------------------- */
+
+
+/* Products
+--------------------- */
+
+.products h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	text-align: center;
+	color: white;
+	width: 100%;
+	background-color: #202020;
+	padding: 20px;
+
+}
+
+.products {
+	background: transparent;
+	width: 100%;
+}
+
+section{
+	margin: 0 auto;
+	display: block;
+}
+
+.go{
+	margin-bottom: 20px;
+	padding-top: 50px;
+	margin: 0 auto;
+	display: block;
+}
+
+.product-options a {
+
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	padding: 20px;
+	font-size: 20px;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+
+
+}
+
+.product-options button {
+	border:none;
+  background-color: #202020;
+  color: white;
+  font-size: 15px;
+  margin: 0 auto;
+	display: block;
+}
+
+.product-options button:hover {
+  background-color: #d21e37;
+  color: white; 
+}
+.product-options button:focus {
+  outline:none;
+}
+
+
+.product-options h1 {
+
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	padding: 50px;
+	color: black;
+}
+
+
+.product-options2 a {
+
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	padding: 20px;
+	font-size: 20px;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+
+}
+
+.product-options2 button {
+
+	font-family: 'Roboto', sans-serif;
+	border:none;
+  	background-color: #202020;
+  	color: white;
+  	font-size: 15px;
+  	margin: 0 auto;
+	display: block;
+}
+
+.product-options2 button:hover {
+  background-color: #d21e37;
+  color: white; 
+}
+.product-options2 button:focus {
+  outline:none;
+}
+
+.product-options2 {
+	padding: 20px;
+
+}
+
+.product-options2 {
+	padding: 20px;
+}
+
+.about-products h1 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	padding: 50px;
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	  color: black;
+}
+
+.about-products p {
+	font-family: 'Roboto', sans-serif;
+	padding: 50px; 
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+}
+
+/*-- News & Updates section 
+-------------------------- */
+
+.news-updates h1 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	text-align: center;
+	color: black;
+	width: 100%;
+	padding: 20px;
+}
+
+.news-updates iframe {
+	display: block;
+	width: 100%;
+	margin-top: 50px;
+}
+
+.news-updates li {
+	margin-top: 50px;
+	background: #d21e37;
+	padding: 20px;
+	display: inline-block;
+}
+
+.news-updates ul {
+	width: 400px;
+}
+
+.news-updates a {
+	font-family: 'Roboto', sans-serif;
+	color: white;
+}
+
+.button input[type="submit"] {
+	width: 100%;
+	background-color: orange;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	font-size: 16px;
+	line-height: 56px;
+	margin: 0 auto;
+}
+
+.button {
+	margin-top: 50px;
+}
+
+input[type="submit"]:hover {
+	background-color: #d21e37;
+}
+
+/*-- COMPETITIONS & PROMOTIONS section 
+-------------------------- */
+
+.competitions h1 {
+
+	font-family: 'Pathway Gothic One', sans-serif;
+	padding: 50px;
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+}
+
+.competitions img{
+	width: 100%;
+}
+
+.competitions a {
+	font-family: 'Roboto', sans-serif;
+	color: black;
+}
+
+/*-- Footer section 
+-------------------------- */
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+}
+.forms{
+	margin: 0 auto;
+}
+
+.contact {
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid orange;
+	margin: 80px auto 0;
+}
+
+.contact h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	text-align: center;
+	color: white;
+	width: 100%;
+	padding: 20px;
+}
+
+.contact article {
+	 background-color: #202020;
+	width: 100%;
+	float: left;
+}
+
+.contact article:first-child {
+	margin-right: 80px;
+}
+
+.contact article iframe {
+	width: 100%;
+	height: 335px;
+	border-radius: 10px;
+}
+
+.contact ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+}
+
+/*  form stuff  */
+
+
+.contact form {
+	width: 80%;
+}
+
+.contact article input {
+	font-family: 'Roboto', sans-serif;
+	width: 100%;
+	display: block;
+	text-align: center;
+	border: none;
+	border-radius: 10px;
+	padding: 20px;
+	font-size: 17px;
+	margin-bottom: 20px;
+}
+
+input[type="submit"] {
+	width: 100%;
+	background-color: orange;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	font-size: 16px;
+	line-height: 16px;
+	margin: 0 auto;
+}
+input[type="submit"]:hover {
+	background-color: #cc3333;
+}
+
+.contact article textarea {
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+	display: block;
+	text-align: center;
+	height: 110px;
+	border: none;
+	padding: 10px;
+	font-size: 17px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	 margin-top: 20px
+	margin: 0 auto;
+}
+
+/*  Social media stuff  */
+
+.contact i {
+	margin-right: 20px;
+	color: white;
+}
+
+.contact i:hover {
+	color: orange;
+}
+
+/* physical details */
+
+.stuff {
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	padding: 10px;
+}
+
+.stuff li {
+	display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.stuff i {
+	font-family: 'Roboto', sans-serif;
+	margin: 20px;
+	color: orange;
+	font-size: 30px;
+}
+
+
+/*--Page 2
+-------------------------- */
+
+/*--Trends
+-------------------------- */
+
+.trends-header img {
+	width: 100%;
+}
+
+.trends img {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.trends h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin-top: 110px;
+	margin-left: 50px;
+}
+
+.trends p {
+	font-family: 'Roboto', sans-serif;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-top: 20px;
+	width: 100%;
+}
+
+
+/*--Decorative
+-------------------------- */
+
+.decorative {
+	margin-bottom: 70px;
+}
+
+
+.decorative img {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.decorative p {
+	font-family: 'Roboto', sans-serif;
+	margin-top: 100px;
+	padding-left: 10px;
+}
+
+
+.decorative-paint {
+	padding-top: 50px;
+	margin: 0 auto;
+	display: block;
+}
+
+/*--Diy
+-------------------------- */
+
+.diy-header img {
+	width: 100%;
+}
+
+.diy img {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.diy  h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin-top: 90px;
+	margin-left: 100px;
+}
+
+.diy  p {
+	font-family: 'Roboto', sans-serif;
+	padding-right: 100px;
+	padding-left: 100px;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.diy  {
+	 margin-top: 60px;
+}
+
+
+/*--automotive
+-------------------------- */
+
+.automotive-header img {
+	width: 100%;
+}
+
+.automotive img {
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.automotive h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin-top: 90px;
+	margin-left: 100px;
+}
+
+.automotive p {
+	font-family: 'Roboto', sans-serif;
+	padding-right: 100px;
+	padding-left: 100px;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.automotive {
+	 margin-top: 60px;
+}
+
+
+/*--Industrial
+-------------------------- */
+
+.industrial-header img {
+	width: 100%;
+}
+
+.industrial img {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.industrial h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin-top: 90px;
+	margin-left: 100px;
+}
+
+.industrial p {
+	font-family: 'Roboto', sans-serif;
+	padding-right: 100px;
+	padding-left: 100px;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.industrial {
+	 margin-top: 60px;
+}
+
+.go3 img {
+	margin-bottom: 50px;
+}
+
+/*--Professional
+-------------------------- */
+
+.professional-header img {
+	width: 100%;
+}
+
+.professional img {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.professional h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin-top: 90px;
+	margin-left: 100px;
+}
+
+.professional p {
+	font-family: 'Roboto', sans-serif;
+	padding-right: 100px;
+	padding-left: 100px;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.professional {
+	 margin-top: 60px;
+}
+
+
+
+/*--Showroom
+-------------------------- */
+
+.showroom-header img {
+	width: 100%;
+}
+
+.showroom img {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.showroom h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin-top: 90px;
+	margin-left: 100px;
+}
+
+.showroom p {
+	font-family: 'Roboto', sans-serif;
+	padding-right: 100px;
+	padding-left: 100px;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.showroom {
+	 margin-top: 60px;
+}
+
+/*--Magazine
+-------------------------- */
+
+.magazine-header img {
+	width: 100%;
+}
+
+.magazine img {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.magazine h2 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin-top: 90px;
+	margin-left: 100px;
+}
+
+.magazine p {
+	font-family: 'Roboto', sans-serif;
+	padding-right: 100px;
+	padding-left: 100px;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.magazine {
+	 margin-top: 60px;
+}
+
+/*--Page 3
+-------------------------- */
+
+/*--news-section
+-------------------------- */
+
+.news-header img {
+	width: 100%;
+}
+
+.news-section img {
+	margin-top: 110px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.news-section h1 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin-top: 10px;
+    margin-left: 50px;
+}
+
+
+.news-section p {
+	font-family: 'Roboto', sans-serif;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-top: 20px;
+	width: 100%;
+}
+
+/*--news-section
+-------------------------- */
+
+.cape-epic-header img {
+	width: 100%;
+}
+
+.cape-epic img {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+.cape-epic-cyclist img {
+	width: 100%;
+}
+
+.cape-epic h1 {
+	font-family: 'Pathway Gothic One', sans-serif;
+	margin-top: 150px;
+	margin-left: 50px;
+}
+
+.cape-epic p {
+	font-family: 'Roboto', sans-serif;
+	padding-right: 50px;
+	padding-left: 50px;
+	margin-top: 20px;
+	width: 100%;
+}
+
